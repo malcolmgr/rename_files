@@ -2,7 +2,7 @@ import os
 
 def rename_image_files_sequentially(folder_path, new_filename_prefix):
     """
-    Renames image files (.png, .jpg, .jpeg, .mov) in a folder sequentially,
+    Renames image/video files (.png, .jpg, .jpeg, .mov, .mp4) in a folder sequentially,
     using a user-defined filename prefix and preserving extensions.
 
     Args:
@@ -16,7 +16,7 @@ def rename_image_files_sequentially(folder_path, new_filename_prefix):
 
         for filename in files:
             file_name, file_extension = os.path.splitext(filename)
-            if file_extension.lower() in (".png", ".jpg", ".jpeg", ".mov"):
+            if file_extension.lower() in (".png", ".jpg", ".jpeg", ".mov", ".mp4"):  # Added .mp4
                 old_path = os.path.join(folder_path, filename)
                 new_filename = f"{new_filename_prefix}_{count:03d}{file_extension}"
                 new_path = os.path.join(folder_path, new_filename)
